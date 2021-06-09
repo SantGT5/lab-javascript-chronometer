@@ -10,15 +10,19 @@ class Chronometer {
       if (callback) {
         callback();
       }
-    }, 1000);
+    }, 10);
   }
 
   getMinutes() {
-    return Math.floor(this.currentTime / 60);
+    return Math.floor(this.currentTime / 6000);
   }
 
   getSeconds() {
-    return this.currentTime % 60;
+    return Math.floor(this.currentTime / 100) % 60;
+  }
+
+  getMilliseconds() {
+    return this.currentTime % 100;
   }
 
   computeTwoDigitNumber(value) {
@@ -37,8 +41,9 @@ class Chronometer {
     // "mm:ss"
     const minutes = this.computeTwoDigitNumber(this.getMinutes());
     const seconds = this.computeTwoDigitNumber(this.getSeconds());
+    const milliseconds = this.computeTwoDigitNumber(this.getMilliseconds());
 
-    return `${minutes}:${seconds}`;
+    return `${minutes}:${seconds}:${milliseconds}`;
   }
 }
 

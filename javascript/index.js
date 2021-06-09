@@ -13,10 +13,13 @@ const milDecElement = document.getElementById('milDec');
 const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
+console.log(document.getElementById('sphere').childNodes);
+
 function printTime() {
   // ... your code goes here
   printMinutes();
   printSeconds();
+  printMilliseconds();
 }
 
 function printMinutes() {
@@ -36,10 +39,15 @@ function printSeconds() {
 // ==> BONUS
 function printMilliseconds() {
   // ... your code goes here
+  const milliseconds = chronometer.computeTwoDigitNumber(
+    chronometer.getMilliseconds()
+  );
+
+  milDecElement.innerText = milliseconds[0];
+  milUniElement.innerText = milliseconds[1];
 }
 
 function printSplit() {
-
   const splitTime = chronometer.split();
 
   const li = document.createElement('li');
@@ -50,9 +58,7 @@ function printSplit() {
 }
 
 function clearSplits() {
-  
-splitsElement.innerHTML = ""
-
+  splitsElement.innerHTML = '';
 }
 
 function setStopBtn() {
@@ -89,7 +95,7 @@ function setResetBtn() {
   secDecElement.innerText = '0';
   secUniElement.innerText = '0';
 
-  clearSplits()
+  clearSplits();
 }
 
 // Start/Stop Button
