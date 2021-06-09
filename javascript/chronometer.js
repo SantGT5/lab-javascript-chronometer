@@ -15,20 +15,13 @@ class Chronometer {
 
 }
 
-  getMinutes() {
-    let minutesPass = 60
+getMinutes() {
+    
+  let minutes = Math.floor(this.currentTime / 60);
+  return minutes;
 
-    if(this.currentTime > minutesPass){
-        return this.currentTime - minutesPass
-    }
-
-      if(this.currentTime){
-
-
-      }
-
-    if(this.currentTime === 0){
-      return 0
+  if(this.currentTime === 0){
+  return 0
     }
   }
 
@@ -52,6 +45,9 @@ class Chronometer {
   }
 
   reset() {
+
+
+    
     return this.currentTime = 0
   }
 
